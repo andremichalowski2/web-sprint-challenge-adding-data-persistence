@@ -17,7 +17,7 @@ In this project you will be given a set of requirements and must design a databa
 ### Entities
 
 A `project` is what needs to be done. We want to store the following data about a `project`:
-
+- [x] Initial commit
 -   [ ] a unique ID.
 -   [ ] a name. This column is required.
 -   [ ] a description.
