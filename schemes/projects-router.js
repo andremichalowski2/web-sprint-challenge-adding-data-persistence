@@ -15,7 +15,25 @@ router.get('/routerTest', (req, res) => {
 // router.delete('/:id', (req, res) => {...}
 // router.put('/:id', (req, res) => {...}
 
+
 module.exports = router; //export default router;
+
+
+
+/* 
+
+- [ ] Build an API with endpoints for:
+
+- [ ] adding resources.
+- [ ] retrieving a list of resources.
+
+- [ ] adding projects.
+- [ ] retrieving a list of projects.
+
+- [ ] adding tasks.
+- [ ] retrieving a list of tasks. 
+  
+*/
 
 
 // router.get('/', (req, res) => {
