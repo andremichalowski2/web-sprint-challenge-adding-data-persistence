@@ -1,4 +1,5 @@
-const express = require('express') // import express
+const express = require('express'); // import express
+const dbConfig = require('../data/db-config');
 //import modal or db here
 // const Projects = require('./projects-modal.js)
 const router = express.Router();// instantiate router
@@ -10,10 +11,76 @@ router.get('/routerTest', (req, res) => {
 
 //(insert api routes here (with abbreviated url))
 // router.get('/', (req, res) => {...}
-// router.get('/:id', (req, res) => {...}
 // router.post('/', (req, res) => {...}
-// router.delete('/:id', (req, res) => {...}
-// router.put('/:id', (req, res) => {...}
+
+
+//RESOURCES
+router.get('/resources', (req,res) => {
+  return db('resources').where('').getAll()
+    .then(resources => {
+      res.json(resources);
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed" })
+    })
+})
+
+router.post('/resources', (req,res) => {
+  return db('resources').insert(resource, 'id')
+    .then(ids => {
+      res.json(ids);
+      const id = id[0];
+      return db('resources').where({id}).first();
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed" })
+    })
+
+//PROJECTS
+router.get('projects', (req,res) => {
+  return db('projects').where('').getAll()
+    .then(projects => {
+      res.json(projects);
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed" })
+    })
+})
+
+router.post('/projects', (req,res) => {
+  return db('projects').insert(resource, 'id')
+    .then(ids => {
+      res.json(ids);
+      const id = id[0];
+      return db('projects').where({id}).first();
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed" })
+    })
+})
+
+//TASKS
+router.get('/tasks', (req,res) => {
+  return db('tasks').where('').getAll()
+    .then(tasks => {
+      res.json(tasks);
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed" })
+    })
+})
+
+router.post('/tasks', (req,res) => {
+  return db('tasks').insert(task, 'id')
+    .then(ids => {
+      res.json(ids);
+      const id = id[0];
+      return db('tasks').where({id}).first();
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed" })
+    })
+})
 
 
 module.exports = router; //export default router;
